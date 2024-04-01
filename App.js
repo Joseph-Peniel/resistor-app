@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import Tabs from "./components/Tabs/Tabs";
-import { ColorCodes } from "./components/ColorCodes";
+//import { ColorCodes } from "./components/ColorCodes";
 import { Modal } from "./components/Modal";
 import {
   BandColor,
@@ -51,6 +51,7 @@ const App = () => {
   };
   const onSetBandColor = (color) => {
     setSelectedBand(null);
+    // Change switch statement to switch over selectedBand's value
     switch (selectedBand) {
       case BandColor.$Band1:
         return setBandColor1(color);
@@ -62,6 +63,8 @@ const App = () => {
         return setBandColor4(color);
       case BandColor.$Band5:
         return setBandColor5(color);
+      default:
+        return;
     }
   };
   // Function to calculate 3-band resistor resistance
@@ -76,7 +79,7 @@ const App = () => {
 
     // Calculate resistance using the color code values (example logic)
     const resistance = Number(`${value1}${value2}`) * Math.pow(10, multiplier); // Example calculation
-    const result = `A = ${value1}, B = ${value2}, C = ${ten}^${power} \n\n\n AB x C ± 20% \n\n\n ${value1}${value2} x 10^${power} ± 20% = ${resistance} Ω ± 20%`;
+3    const result = `A = ${value1}, B = ${value2}, C = ${ten}^${power} \n\n\n AB x C ± 20% \n\n\n ${value1}${value2} x 10^${power} ± 20% = ${resistance} Ω ± 20%`;
     setModalOpen(true);
     return result;
   };
@@ -209,7 +212,7 @@ const styles = StyleSheet.create({
   modal: (open = false) => ({
     flex: 1,
     width: "100%",
-    height: "105%",
+    height: "100%",
     zIndex: 99990000,
     position: "absolute",
     alignItems: "center",
@@ -237,7 +240,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderLeftColor: "#000",
     borderRightColor: "#000",
-    borderBlockColor: "#000",
+    borderBottomColor: "#000",
     borderRadius: 10,
     padding: 10,
     paddingRight: 10,
