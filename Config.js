@@ -95,7 +95,7 @@ export const Multiplier = {
   white: "10^9",
   gold: "10^-1",
   silver: "10^-2",
-  none: 20,
+  none: "10^20", // Corrected to be a string representing a power of 10 initially 20
 };
 export const Digit = {
   black: "0",
